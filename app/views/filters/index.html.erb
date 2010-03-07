@@ -1,0 +1,37 @@
+<% content_for :title, "Filters" %>
+
+<h2>Rules</h2>
+
+<!--
+
+<div class="rule static">
+  <p>Guy stuff</p>
+</div>
+<div class="rule static">
+  <p>Vegan</p>
+</div>
+-->
+<div id="filters">
+  <form name="filters" id="filter_rules">
+    <div class="rule dynamic">
+      
+      <select class="properties">
+        <% for option_name in ApplicationController::FILTERS.keys.sort %>
+        <option value="<%= option_name %>"><%= option_name %></option>
+        <% end %>
+      </select>
+      
+      <select class="operators"><option>&mdash;</option></select>
+      
+      <span class="operand-wrapper"></span>
+      
+      <div class="rule-management-buttons">
+        <button class="rule-remove">-</button>
+        <button class="rule-add">+</button>
+      </div>
+      
+    </div>
+  </form>
+</div>
+
+<div id="inspection"></div>

@@ -1,0 +1,11 @@
+%html
+  %head
+    = csrf_meta_tag
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
+    = javascript_include_tag "application"
+    = javascript_tag "var filters = #{ApplicationController::FILTERS.to_json}"
+    =stylesheet_link_tag "filters"
+    %title= yield :title
+  %body
+    %h1= yield :title
+    = yield
