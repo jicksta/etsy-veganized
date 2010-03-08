@@ -1,0 +1,13 @@
+defaults: &defaults
+  host: localhost
+
+development:
+  <<: *defaults
+  database: "#etsy-veganized-development"
+
+production:
+  <<: *defaults
+  host: db.mongohq.com
+  username: user
+  password: pass
+  database: fanboy
