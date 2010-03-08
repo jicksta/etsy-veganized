@@ -1,0 +1,17 @@
+<div class='images'>
+  <% for product in @products %>
+  <div class='preview' data-id="<%= product['listing_id'] %>">
+    <img src='<%= product["image_url_200x200"] %>' alt='<%= product["title"] %>'>
+    <div class='details'>
+      <img src="<%= product["image_url_430xN"] %>"/>
+      <h3><%= product["title"] %></h3>
+      <div class='description'><%= product['description'] %></div>
+      <dl>
+        <% for property in %w[price user_name city] %>
+        <dt><%= property %></dt><dd><%= product[property] %></dd>
+        <% end %>
+      </dl>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -50,6 +50,61 @@ $(document).ready(function() {
 
   $(".rule select.properties").change();
   $(".rule select.operators").change();
+  
+  $("#toolbar-filters-button").hover(function() {
+    $("#filter-pane").slideToggle("fast");
+  })
+  
+  $("#toolbar-randomly-filter-button").click(function() {
+    console.log("Size before: " + $("div.images div.preview").length);
+    var filteredList = [];
+    $("div.images div.preview").each(function() {
+      if(Math.random(3) > 0.666 ) {
+        filteredList.push(this);
+      }
+    });
+    console.log("Size after: " + filteredList.length);
+    $("div.images").quicksand($(filteredList));
+  });
+  
+  $('.preview > img').each(function() {
+    $(this).qtip({
+      target: this,
+      position: {
+         corner: {
+            target: 'rightMiddle',
+            tooltip: 'leftMiddle'
+         }
+      },
+      content: $(this).next(".details"),
+      show: 'mouseover',
+      hide: 'mouseout',
+      show: {
+        when: {
+          event: "click"
+        }
+      },
+      style: {
+        name:'green',
+        width: {
+          max: 500,
+          min: 400
+        },
+        tip: {
+          corner: 'leftMiddle', // We declare our corner within the object using the corner sub-option
+          size: {
+            x: 20, // Be careful that the x and y values refer to coordinates on screen, not height or width.
+            y : 20 // Depending on which corner your tooltip is at, x and y could mean either height or width!
+          }
+        },
+        border: {
+          width: 6,
+          radius: 8,
+        }
+      },
+
+  })
+  });
 });
 
 function addRule() {
@@ -68,7 +123,7 @@ function addRule() {
   $(this).closest(".rule").after(container);
   
   propertiesDropdown.change();
-  $("#filter_rules").trigger("modified");
+  $(this).closest("form").trigger("modified");
   
   return false;
 }

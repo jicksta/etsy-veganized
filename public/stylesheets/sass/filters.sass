@@ -1,6 +1,81 @@
 body
   font-family: Helvetica
   font-size: 10px
+  margin: 0
+  padding: 0
+  background-color: black
+
+h1.header
+  display: none
+
+div#toolbar
+  height: 50px
+  color: white
+  padding: 0
+  margin: 0
+  background-color: #E0FFDA
+  overflow: hidden
+  position: relative
+  
+  h2
+    font-family: 'AmerikaRegular', Arial, sans-serif
+    color: black
+    font-size: 40px
+    text-transform: uppercase
+    text-shadow: white 0 0 10px
+    display: inline-block
+    margin: 0
+    padding: 0 0 0 10px
+    line-height: 50px
+  
+  h3  
+    padding: 5px
+    margin: 0
+    font-family: 'AmerikaRegular', Arial, sans-serif
+    display: inline-block
+    width: 100px
+    font-size: 20px
+    text-align: center
+    text-shadow: green 0 0 10px
+    position: absolute
+    bottom: 0px
+
+  h3:hover
+    cursor: pointer
+    text-shadow: black 0 0 10px
+
+  h3#toolbar-filters-button  
+    background-color: #A3E692
+    right: 10px
+  h3#toolbar-about-button  
+    background-color: #D4E675
+    right: 130px
+  h3#toolbar-randomly-filter-button
+    background-color: black
+    color: white
+    width: 200px
+    right: 250px
+
+#filter-pane
+  position: absolute
+  top: 50px
+  right: 10px
+  background: #A3E692 url(/images/bg-radial-gradient.png) top center no-repeat
+  width: 400px
+  padding: 8px
+  display: none
+  
+  ul#filter-descriptions
+    padding: 0
+    margin: 0
+  
+    li
+      opacity: 0.7
+      padding: 4px
+      letter-spacing: 1px
+      margin-bottom: 2px
+      background-color: #D1FFD0
+      list-style: none
 
 .rule-management-buttons
   display: inline
@@ -29,5 +104,24 @@ body
   color: black
   padding: 10px
   position: absolute
-  bottom: 10px
+  top: 10px
   right: 10px
+
+div.images div.preview
+  display: inline-block
+  
+  .details
+    display: none
+  img
+    cursor: pointer
+.qtip-content
+  overflow: hidden
+  
+.qtip-content > img
+  float: right
+  
+  
+@font-face
+  font-family: 'AmerikaRegular'
+  src: url('AMERIKA_.eot')
+  src: local('Amerika'), local('Amerika'), url('AMERIKA_.woff') format('woff'), url('AMERIKA_.ttf') format('truetype'), url('AMERIKA_.svg#Amerika') format('svg')

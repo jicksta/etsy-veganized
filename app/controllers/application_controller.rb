@@ -1,15 +1,5 @@
 class ApplicationController < ActionController::Base
   
-  # FILTERS = {
-  #   "Tag name" => ["is", "isn't"],
-  #   "Materials used" => ["includes", "does not include"],
-  #   "Seller username" => ["is", "isn't"],
-  #   "Title" => ["contains", "does not contain", "is", "isn't"],
-  #   "Distance" => ["is closer than", "is farther than"],
-  #   "Price" => ["is less than", "is greater than"]
-  # }
-  
-  
   FILTERS = {
     "Tag name" => {
       :operators => ["is", "isn't"],
@@ -38,8 +28,24 @@ class ApplicationController < ActionController::Base
     }
   }
   
+  VEGAN_FILTER = [
+    ["Materials used", "does not include", "wool"],
+    ["Materials used", "does not include", "silk"],
+    ["Materials used", "does not include", "leather"],
+    ["Materials used", "does not include", "feather"],
+    ["Materials used", "does not include", "feathers"]
+  ]
   
+  MANLY_FILTER = [
+    ["Title", "does not contain", "skirt"],
+    ["Title", "does not contain", "dress"],
+    ["Title", "does not contain", "skirt"],
+    ["Title", "does not contain", "corset"]
+  ]
   
+  MISC_FILTER = [
+    ["Title", "does not contain", "easter"]
+  ]
   
   protect_from_forgery
 end

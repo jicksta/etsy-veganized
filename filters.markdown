@@ -26,3 +26,4 @@ TODO
 
 * Country is...
 * Submitted XXX days ago
+* Category

@@ -1,11 +1,18 @@
 %html
   %head
-    = csrf_meta_tag
-    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
-    = javascript_include_tag "application"
-    = javascript_tag "var filters = #{ApplicationController::FILTERS.to_json}"
-    =stylesheet_link_tag "filters"
     %title= yield :title
+    = csrf_meta_tag
+    = stylesheet_link_tag "filters"
+    
+    = javascript_tag "var filters = #{ApplicationController::FILTERS.to_json}"
   %body
-    %h1= yield :title
+
+    %h1.header= yield :title
+    
+    = render :partial => "layouts/toolbar"
     = yield
+    
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"
+    = javascript_include_tag "jquery.quicksand.min.js"
+    = javascript_include_tag "jquery.qtip-1.0.0-rc3.min"
+    = javascript_include_tag "application"
