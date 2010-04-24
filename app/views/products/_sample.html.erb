@@ -11,6 +11,18 @@
         <dt><%= property %></dt><dd><%= product.send property %></dd>
         <% end %>
       </dl>
+      <h4>Tags</h4>
+      <ul>
+        <% for tag in product.tags %>
+        <li><%= tag %></li>
+        <% end %>
+      </ul>
+      <h4>Materials</h4>
+      <ul>
+        <% for materials in product.materials %>
+        <li><%= materials %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <% end %>
